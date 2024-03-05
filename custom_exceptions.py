@@ -1,0 +1,2 @@
+class GmailSDKError(Exception):
+    pass

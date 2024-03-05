@@ -1,0 +1,128 @@
+{
+    "rules": [
+        {
+            "description": "Rule 0.5",
+            "predicate": "all",
+            "conditions": [
+                {
+                    "field_name": "from",
+                    "predicate": "contains",
+                    "value": "guardian.com"
+                },
+                {
+                    "field_name": "subject",
+                    "predicate": "contains",
+                    "value": "Film Weekly"
+                },
+                {
+                    "field_name": "date_received",
+                    "predicate": "lesser than",
+                    "value": "2",
+                    "unit": "days"
+                }
+            ],
+            "actions": [
+                {
+                    "action_type": "move message",
+                    "message_label": "inbox"
+                },
+                {
+                    "action_type": "mark as read"
+                }
+            ]
+        },
+        {
+            "description": "Rule 1",
+            "predicate": "all",
+            "conditions": [
+                {
+                    "field_name": "from",
+                    "predicate": "contains",
+                    "value": "tenmiles.com"
+                },
+                {
+                    "field_name": "subject",
+                    "predicate": "contains",
+                    "value": "interview"
+                },
+                {
+                    "field_name": "date_received",
+                    "predicate": "lesser than",
+                    "value": "2",
+                    "unit": "days"
+                }
+            ],
+            "actions": [
+                {
+                    "action_type": "move message",
+                    "message_label": "inbox"
+                },
+                {
+                    "action_type": "mark as read"
+                }
+            ]
+        },
+        {
+            "description": "Rule 2",
+            "predicate": "any",
+            "conditions": [
+                {
+                    "field_name": "from",
+                    "predicate": "equals",
+                    "value": "tenmiles.com"
+                },
+                {
+                    "field_name": "subject",
+                    "predicate": "does not contain",
+                    "value": "interview"
+                },
+                {
+                    "field_name": "date_received",
+                    "predicate": "greater than",
+                    "value": "3",
+                    "unit": "months"
+                }
+            ],
+            "actions": [
+                {
+                    "action_type": "move message",
+                    "message_label": "inbox"
+                },
+                {
+                    "action_type": "mark as unread"
+                }
+            ]
+        },
+        {
+            "description": "Mark as spam",
+            "predicate": "all",
+            "conditions": [
+                {
+                    "field_name": "from",
+                    "predicate": "equals",
+                    "value": "info@editorial.theguardian.com"
+                },
+                {
+                    "field_name": "subject",
+                    "predicate": "does not contain",
+                    "value": "interview"
+                },
+                {
+                    "field_name": "date_received",
+                    "predicate": "less than",
+                    "value": "3",
+                    "unit": "months"
+                }
+            ],
+            "actions": [
+                {
+                    "action_type": "move message",
+                    "message_label": "spam"
+                },
+                {
+                    "action_type": "mark as read"
+                }
+            ]
+        }
+    ]
+}
